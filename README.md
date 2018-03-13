@@ -144,3 +144,10 @@ In video 1, I set the window size for multi scale searching to (128, 128). The n
 
 [![](https://img.youtube.com/vi/5qd3vWtqs_I/0.jpg)](https://youtu.be/5qd3vWtqs_I)
 [Link of Video 3](https://youtu.be/5qd3vWtqs_I)
+
+### Discussion
+In this project, I've to admitted the time is too rush for me to enhance the performance. There are two shortcomings in current algorithm:
+- False positive too high
+- Failed to continuous track the objects
+
+You can see the left side gap were sometimes detected as vehicle, but just a flash time not always there. This can be solved by add the lives method to check how long have the rectangles been detected. If the rectangle has been detected for 3 frames (threshold), then it was considered as an object in this region. On the other side, the object was failed to track continuously due to algorithm limitations. This can be fixed by assuming an object will not disappear or show up suddenly. The predicted rectangle will be displayed if the previous condition has been satisfied, but there's no object detected in region around it this time.
